@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./database.sqlite"
+}
+
+model User {
+  id            Int            @id @default(autoincrement())
+  username      String         @unique 
+  password      String         
+  role          String         // 'mahasiswa', 'dosen', 'admin'
+  devices       Device[]
+  refreshTokens RefreshToken[]
+  kelasAjar     Kelas[]        @relation("DosenKelas")
+  nilai         Nilai[]        @relation("MahasiswaNilai")
+  transkrip     Transkrip?
+}
+
+model Device {
+  id         Int    @id @default(autoincrement())
+  deviceId   String @unique 
+  userId     Int
+  user       User   @relation(fields: [userId], references: [id])
+}
+
+model RefreshToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Kelas {
+  id         Int     @id @default(autoincrement())
+  namaMatkul String
+  dosenId    Int
+  dosen      User    @relation("DosenKelas", fields: [dosenId], references: [id])
+  nilai      Nilai[]
+}
+
+model Nilai {
+  id          Int     @id @default(autoincrement())
+  angka       Float
+  isFinal     Boolean @default(false)
+  mahasiswaId Int
+  mahasiswa   User    @relation("MahasiswaNilai", fields: [mahasiswaId], references: [id])
+  kelasId     Int
+  kelas       Kelas   @relation(fields: [kelasId], references: [id])
+}
+
+model Transkrip {
+  id          Int    @id @default(autoincrement())
+  mahasiswaId Int    @unique
+  mahasiswa   User   @relation(fields: [mahasiswaId], references: [id])
+  dataNilai   String // Simpan dalam format JSON string
+}
+
+model AuditLog {
+  id        Int      @id @default(autoincrement())
+  waktu     DateTime @default(now())
+  subjek    String   // Berisi User ID atau "Service Nilai"
+  endpoint  String
+  device    String?  // X-Device-ID
+  hasil     String   // "allow" atau "deny"
+  alasan    String
+}
