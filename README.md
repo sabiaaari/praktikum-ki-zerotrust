@@ -8,7 +8,7 @@ Repositori ini berisi implementasi dari tugas praktikum Keamanan Informasi (KP70
 
 ---
 
-## 🎯 Pemenuhan Kebutuhan Sistem (Sesuai Ketentuan Tugas)
+##  Pemenuhan Kebutuhan Sistem (Sesuai Ketentuan Tugas)
 
 Sistem ini telah memenuhi seluruh ketentuan yang disyaratkan pada pedoman praktikum (Bagian 4 dan 5), yang juga telah didemonstrasikan dalam video luaran tugas:
 
@@ -38,7 +38,7 @@ Setiap keputusan akses dari Gateway—baik yang diizinkan (*allow*) maupun ditol
 
 ---
 
-## 🚀 Cara Menjalankan Sistem
+##  Cara Menjalankan Sistem
 
 Pastikan **Node.js** dan **npm** sudah terinstal. Sistem ini menggunakan **SQLite** (melalui Prisma ORM) sehingga tidak memerlukan *server database* terpisah.
 
@@ -72,7 +72,7 @@ node index.js
 
 ---
 
-## 🔐 Daftar Akun dan Device ID (Data Seed)
+##  Daftar Akun dan Device ID (Data Seed)
 
 Seluruh pengujian dilakukan menggunakan Postman dengan menembak `http://localhost:3000`. Wajib menyertakan header **`X-Device-ID`** pada setiap pengujian (kecuali untuk menguji penolakan konteks).
 
@@ -81,11 +81,10 @@ Seluruh pengujian dilakukan menggunakan Postman dengan menembak `http://localhos
 | **Admin** | `admin1` | `rahasia123` | `dev-admin-1` | Dapat melihat seluruh transkrip mahasiswa. |
 | **Dosen** | `dosen1` | `rahasia123` | `dev-dosen-1` | Pengampu Kelas A (ID: 1). |
 | **Dosen** | `dosen2` | `rahasia123` | `dev-dosen-2` | Pengampu Kelas B (ID: 2). |
-| **Mahasiswa**| `mhs1` | `rahasia123` | `dev-mhs-1` | Terdaftar di Kelas A dan B. |
-| **Mahasiswa**| `mhs2` | `rahasia123` | `dev-mhs-2` | Terdaftar di Kelas A saja. |
-| **Mahasiswa**| `mhs3` | `rahasia123` | `dev-mhs-3` | Terdaftar di Kelas B saja. |
+| **Mahasiswa**| `mhs1` | `rahasia123` | `dev-mhs-1` | Terdaftar di Kelas A. |
+| **Mahasiswa**| `mhs2` | `rahasia123` | `dev-mhs-2` | Terdaftar di Kelas A. |
+| **Mahasiswa**| `mhs3` | `rahasia123` | `dev-mhs-3` | Terdaftar di Kelas B. |
 
 > *Catatan:* Untuk proses Finalisasi Kelas, sistem secara *backend* menggunakan Client ID: `service-nilai` dan Secret: `rahasia-nilai-123` untuk memanggil `/auth/service` tanpa keterlibatan pengguna.
 
 ---
-*Repository ini dibuat sebagai bentuk pemenuhan Kebutuhan Sistem dan Luaran Tugas Praktikum Keamanan Informasi 2026/2027.*
