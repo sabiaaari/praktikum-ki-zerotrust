@@ -1,16 +1,12 @@
 # Implementasi Zero Trust Security - Sistem Nilai Akademik
 
-Repositori ini berisi implementasi dari tugas praktikum Keamanan Informasi (KP70065004) mengenai **Zero Trust Security** pada level aplikasi. Sistem ini dibangun dengan arsitektur *microservices* dan mengimplementasikan prinsip-prinsip NIST SP 800-207 (*Never Trust Always Verify, Least Privilege, Assume Breach*).
+Repositori ini berisi implementasi dari tugas praktikum Keamanan Informasi mengenai **Zero Trust Security** pada level aplikasi. Sistem ini dibangun dengan arsitektur *microservices* dan mengimplementasikan prinsip-prinsip NIST SP 800-207 (*Never Trust Always Verify, Least Privilege, Assume Breach*).
 
 **Nama:** Sixta Tabia Ritawan  
 **NIM:** 247006111049  
-**Mata Kuliah:** Keamanan Informasi - Informatika, Universitas Siliwangi  
+**Mata Kuliah:** Keamanan Informasi 
 
 ---
-
-##  Pemenuhan Kebutuhan Sistem (Sesuai Ketentuan Tugas)
-
-Sistem ini telah memenuhi seluruh ketentuan yang disyaratkan pada pedoman praktikum (Bagian 4 dan 5), yang juga telah didemonstrasikan dalam video luaran tugas:
 
 ### 1. Arsitektur PEP & PE (Bagian 3)
 - **API Gateway (Port 3000):** Berperan sebagai *Policy Enforcement Point* (PEP) sekaligus *Policy Engine* (PE). Satu-satunya pintu masuk bagi *client*.
